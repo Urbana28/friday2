@@ -40,26 +40,32 @@ const SignIn: React.FC<SignInProps> = ({
             {isFetching && <Preloader/>}
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
-                    <input ref={register({
-                        required: 'Required',
-                        pattern: {
-                            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                            message: 'Invalid email adress'
-                        }
-                    })} onChange={(e) => setEmail(e.currentTarget.value)} type="text"
-                           placeholder={'login'} name={email}/>
+                    <input
+                        ref={register({
+                            required: 'Required',
+                            pattern: {
+                                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                                message: 'Invalid email adress'
+                            }
+                        })}
+                        /*onChange={(e) => setEmail(e.currentTarget.value)}*/
+                        type="text"
+                        placeholder={'login'} name='email'
+                    />
                     {errors.email && errors.email.message && <span className={s.error}>{errors.email.message}</span>}
-                   
+
                 </div>
                 <div>
-                    <input ref={register({required:true})}
-                        onChange={(e) => setPassword(e.currentTarget.value)} type="password"
-                           placeholder={'password'} name={password}/>
+                    <input
+                        ref={register({required: true})}
+                        /*onChange={(e) => setPassword(e.currentTarget.value)}*/ type="password"
+                        placeholder={'password'} name='password'
+                    />
                     {errors.password && <span className={s.error}>Password is required!</span>}
                 </div>
 
                 <div>
-                    <button>Sign in</button>
+                    <button type='submit'>Sign in</button>
                 </div>
                 <div>
                     <NavLink to={FORGOT_PATH}>forgot password?</NavLink>

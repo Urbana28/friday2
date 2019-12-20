@@ -1,11 +1,15 @@
+export interface IBooleanObj {
+    value:boolean, name:string, message: string
+}
+
 export interface IBooleanState {
-    loading: boolean
-    error: boolean
-    success: boolean
+    booleans: IBooleanObj[]
 }
 
 export const booleanInitialState: IBooleanState = {
-    loading: false,
-    error: false,
-    success: false
+   booleans: [
+       {value:false, name:'SET_LOADING_PROGRESS', message:'loading...'},
+       {value:false, name:'SET_ERROR', message:'error!'},
+       {value:false, name:'SET_SUCCESS', message:'success!'}
+   ]
 };

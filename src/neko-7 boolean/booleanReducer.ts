@@ -1,23 +1,14 @@
 import {booleanInitialState} from "./booleanInitialState";
-import {IBooleanActions} from "./booleanActions";
+import { ISetBoolean } from "./booleanActions";
 
 
-export const booleanReducer = (state = booleanInitialState, action: IBooleanActions) => {
+
+export const booleanReducer = (state = booleanInitialState, action: ISetBoolean) => {
     switch (action.type) {
-        case "SET_LOADING_PROGRESS":
+        case "SET_BOOLEAN":
             return {
                 ...state,
-                loading: action.loading
-            };
-        case "SET_ERROR":
-            return {
-                ...state,
-                error: action.error
-            };
-        case "SET_SUCCESS":
-            return {
-                ...state,
-                success: action.success
+               booleans: [...state.booleans, action.boolean]
             };
         default:
         {return state}

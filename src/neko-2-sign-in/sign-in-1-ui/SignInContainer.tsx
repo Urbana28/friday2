@@ -3,7 +3,7 @@ import SignIn from "./SignIn";
 import {useDispatch, useSelector} from "react-redux";
 import { signIn } from '../sign-in-2-bll/signInThunks';
 import { IAppStore } from '../../neko-1-main/main-2-bll/store';
-import {isFetchingPreload} from "../sign-in-2-bll/signInActions";
+
 
 const SignInContainer: React.FC = () => {
     // logic
@@ -18,6 +18,7 @@ const SignInContainer: React.FC = () => {
     const dispatch = useDispatch();
 
     const loginMe = (email: string, password:string, rememberMe: boolean) => {
+     console.log(email, password, rememberMe)
         dispatch(signIn(email, password, rememberMe))
     };
 
