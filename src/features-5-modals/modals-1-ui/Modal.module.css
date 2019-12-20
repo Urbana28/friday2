@@ -19,3 +19,27 @@
     top: calc(50% - 100px);
     left: calc(50% - 150px);
 }
+
+.messageModalWindow {
+    top: -50px;
+    left: calc(50% - 50px);
+    width: 100px;
+    height: 50px;
+    animation-name: show;
+    animation-duration: 3s;
+}
+
+  
+@keyframes show {
+    0% {
+      top: -50px;
+    }
+
+    50% {
+        top: 25px;
+    }
+  
+    100% {
+        top: -50px;
+    }
+}
